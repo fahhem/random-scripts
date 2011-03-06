@@ -14,22 +14,26 @@ I use split-windows in vim a lot so I wrote this to make one call to vimsp.py wi
 
 The final layouts look like so:
 
+::
+
 |====|====|
 |    |    |
 |====|====|
 |         |
 |=========|
 
+::
+
 |====|====|
 |    |    |
 |====|====|
 |    |    |
 |====|====|
 
+::
+
 |=========|
 |         |
 |=========|
 |         |
 |=========|
-
-
