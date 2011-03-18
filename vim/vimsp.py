@@ -54,12 +54,13 @@ for i, arg in enumerate(args):
     if i in removes: continue
 
     count = 1
+    pos = 1
     m = arg_match.match(arg)
     if m:
         dir = m.groups()[0]
         other = dir_map[dir]
         while count and len(args)>i+count*2: # we have at least 2 more args left
-            nm = arg_match.match(args[i+count*2])
+            nm = arg_match.match(args[i+pos*2])
             if not nm: break
             if nm.groups()[0]==other:
                 if count == 1:
@@ -67,8 +68,10 @@ for i, arg in enumerate(args):
                     break
                 else:
                     count -= 1 # this arg just undoes the latest arg
+                    pos += 1
             else:
                 count += 1
+                pos += 1
                 # remove the next two, change this one
                 removes.extend([i+1,i+2])
                 newarg = re.sub(r'\d*wincmd','%dwincmd' % count,arg)
