@@ -97,5 +97,6 @@ for i, arg in enumerate(args):
 args = newargs
 
 
-import subprocess
-subprocess.call(args)
+import os
+print ' '.join(args)
+os.execvp(args[0], args)
